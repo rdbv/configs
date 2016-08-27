@@ -36,8 +36,11 @@ nnoremap <c-p> :tabnew <cr>
 inoremap <Leader>se <esc> :so $MYVIMRC <cr>
 nnoremap <Leader>se :so $MYVIMRC <cr>
 
-inoremap <c-l> <esc> :!xterm -e 'python3 %;read;' <cr>
-nnoremap <c-l> :!xterm -e 'python3 %;read' <cr>
+inoremap <c-l> <esc> :!xterm -e 'python main.py;read;' <cr>
+nnoremap <c-l> :!xterm -e 'python main.py;read' <cr>
+
+inoremap <c-b> <esc> :!xterm -e 'python %;read;' <cr>
+nnoremap <c-b> :!xterm -e 'python %;read' <cr>
 
 " Helper mappings
 inoremap <c-k> <esc> :call CompileFile() <cr>
@@ -45,4 +48,5 @@ nnoremap <c-k> :call CompileFile() <cr>
 
 inoremap <Leader>k <esc> :call RunFileInNewWindow("main") <cr>
 nnoremap <Leader>k :call RunFileInNewWindow("main") <cr>
+
 
