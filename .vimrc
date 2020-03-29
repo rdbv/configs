@@ -1,9 +1,24 @@
 set nocompatible 
+
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+
+call vundle#end()
+
 filetype indent plugin on
 syntax on
 colorscheme slate
 
 set number
+set mouse=a
 set shiftwidth=4
 set expandtab
 set tabstop=4
@@ -16,6 +31,7 @@ function! WriteFIFO(command, fifo)
 endfunction
 
 function! CompileFile()
+    "let name = expand('%:t:r')
     let name = expand('%:t')
     execute '!' . 'make -B ' . name 
 endfunction
@@ -88,17 +104,14 @@ nnoremap <c-l> :call WriteFIFO('make -B burn', 'cmd') <cr>
 inoremap <c-x> <esc> :!python3 % <cr>
 nnoremap <c-x> :!python3 % <cr>
 
-"inoremap <c-m> :! clear; echo 'clear; make -B' > cmd <cr>
-"nnoremap <c-m> :! clear; echo 'clear; make -B' > cmd <cr>
+inoremap <f9> :! clear; echo -ne '' > build_fifo <cr>
+nnoremap <f9> :! clear; echo -ne '' > build_fifo <cr>
 
-"inoremap <c-m> :! clear; echo 'clear; ./build/main' > cmd <cr>
-"nnoremap <c-m> :! clear; echo 'clear; ./build/main' > cmd <cr>
- 
-inoremap <f9> :! clear; make -B run <cr>
-nnoremap <f9> :! clear; make -B run <cr>
+inoremap <f8> :make <cr>
+nnoremap <f8> :make <cr>
 
-inoremap <f10> :call CompileFile()<cr>
-nnoremap <f10> :call CompileFile()<cr>
+"inoremap <f10> :call CompileFile()<cr>
+"nnoremap <f10> :call CompileFile()<cr>
 
 inoremap <F12> :! clear; make -B run<cr>
 nnoremap <F12> :! clear; make -B run<cr>
