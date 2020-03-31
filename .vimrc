@@ -86,20 +86,12 @@ inoremap <c-e> <esc> :call RunPythonScript() <cr>
 nnoremap <c-e> :call RunPythonScript() <cr>
 
 " Helper mappings
-"inoremap <c-l> <esc> :call CompileFileFIFO() <cr>
-"nnoremap <c-l> :call CompileFileFIFO() <cr>
 
 inoremap <c-k> <esc> :call WriteFIFO('make -B ' . expand('%:t') , 'cmd') <cr>
 nnoremap <c-k> :call WriteFIFO('make -B ' . expand('%:t') , 'cmd') <cr>
 
 inoremap <c-l> <esc> :call WriteFIFO('make -B burn', 'cmd') <cr>
 nnoremap <c-l> :call WriteFIFO('make -B burn', 'cmd') <cr>
-
-"inoremap <c-l> <esc> :!./flash.py -c /dev/ttyUSB0 -f "main.py index.html"<cr>
-"nnoremap <c-l> :!./flash.py -c /dev/ttyUSB0 -f "main.py index.html"<cr>
-
-"inoremap <c-n> <esc> :call FlashFIFO() <cr>
-"nnoremap <c-n> :call FlashFIFO() <cr>
 
 inoremap <c-x> <esc> :!python3 % <cr>
 nnoremap <c-x> :!python3 % <cr>
@@ -110,12 +102,8 @@ nnoremap <f9> :! clear; echo -ne '' > build_fifo <cr>
 inoremap <f8> :make <cr>
 nnoremap <f8> :make <cr>
 
-"inoremap <f10> :call CompileFile()<cr>
-"nnoremap <f10> :call CompileFile()<cr>
-
 inoremap <F12> :! clear; make -B run<cr>
 nnoremap <F12> :! clear; make -B run<cr>
-
 
 inoremap <Leader>k <esc> :call RunFileInNewWindow("build/main") <cr>
 nnoremap <Leader>k :call RunFileInNewWindow("build/main") <cr>
