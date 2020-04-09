@@ -96,8 +96,8 @@ nnoremap <c-l> :call WriteFIFO('make -B burn', 'cmd') <cr>
 inoremap <c-x> <esc> :!python3 % <cr>
 nnoremap <c-x> :!python3 % <cr>
 
-inoremap <f9> :! clear; echo -ne '' > build_fifo <cr>
-nnoremap <f9> :! clear; echo -ne '' > build_fifo <cr>
+inoremap <f9> :! clear; echo -ne '' > .build_fifo <cr>
+nnoremap <f9> :! clear; echo -ne '' > .build_fifo <cr>
 
 inoremap <f8> :make <cr>
 nnoremap <f8> :make <cr>
